@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package fixbug;
+// 生成service服务类和rpc方法描述
+option cc_generic_services = true;
+
+message ResultCode{
+    int32 errcode=1;
+    bytes errmsg=2;
+}
+message LoginRequest{
+    bytes name=1;
+    bytes pwd=2;
+}
+
+message LoginResponse{
+    ResultCode result=1;
+    bool success=2;
+}
+
+message getFriendListsRequest{
+    uint32 userid=1;
+}
+
+message User{
+    bytes name=1;
+    uint32 age = 2; 
+    enum Sex{
+        MAN=0;
+        WOMAN=1;
+    }
+    Sex sex = 3;
+}
+message getFriendListsResponse{
+    ResultCode result = 1;
+    repeated User friend_list=2;
+}
+// protobuf描述rpc方法
+service UserServiceRpc{
+    rpc Login(LoginRequest) returns (LoginResponse);
+    rpc GetFriendLists(getFriendListsRequest) returns(getFriendListsResponse);
+}

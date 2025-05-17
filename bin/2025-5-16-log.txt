@@ -1,0 +1,4 @@
+0:1:55=>[INFO]service_name:`hd>[
+0:1:55=>[INFO]method_name:Ðw6ü
+0:4:13=>[INFO]service_name:FriendServiceRpc
+0:4:13=>[INFO]method_name:GetFriendsList

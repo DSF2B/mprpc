@@ -1,0 +1,2 @@
+23:56:41first log message!
+23:56:43/home/zilu/桌面/MPRPC/example/callee/friendservice.cc:main:42
