@@ -35,6 +35,11 @@
   "file": "/home/zilu/桌面/MPRPC/src/logger.cc"
 },
 {
+  "directory": "/home/zilu/桌面/MPRPC/build/src",
+  "command": "/usr/bin/g++  -I/home/zilu/桌面/MPRPC/src/include -I/home/zilu/桌面/MPRPC/example -g -o CMakeFiles/mprpc.dir/zookeeperutil.cc.o -c /home/zilu/桌面/MPRPC/src/zookeeperutil.cc",
+  "file": "/home/zilu/桌面/MPRPC/src/zookeeperutil.cc"
+},
+{
   "directory": "/home/zilu/桌面/MPRPC/build/example/callee",
   "command": "/usr/bin/g++  -I/home/zilu/桌面/MPRPC/src/include -I/home/zilu/桌面/MPRPC/example -g -o CMakeFiles/provider.dir/friendservice.cc.o -c /home/zilu/桌面/MPRPC/example/callee/friendservice.cc",
   "file": "/home/zilu/桌面/MPRPC/example/callee/friendservice.cc"

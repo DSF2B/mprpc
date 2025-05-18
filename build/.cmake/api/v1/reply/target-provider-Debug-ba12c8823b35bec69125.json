@@ -138,6 +138,10 @@
 			{
 				"fragment" : "-lpthread",
 				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lzookeeper_mt",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
