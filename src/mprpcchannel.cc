@@ -1,5 +1,6 @@
 #include "mprpcchannel.h"
 #include "mprpccontroller.h"
+#include "zookeeperutil.h"
 
 // header_size(4bytes) + head_str(service_name method_name args_size) + args_str指明哪些是服务名和方法名和参数
 void MprpcChannel::CallMethod(
@@ -62,9 +63,28 @@ void MprpcChannel::CallMethod(
         controller->SetFailed(errtext);
         return ;
     }
-
-    std::string ip = MprpcApplication::GetInstance().GetConfig().Load("rpcserverip");
-    uint16_t port = atoi(MprpcApplication::GetInstance().GetConfig().Load("rpcserverport").c_str());
+    //读取配置文件中的rpcserver信息
+    // std::string ip = MprpcApplication::GetInstance().GetConfig().Load("rpcserverip");
+    // uint16_t port = atoi(MprpcApplication::GetInstance().GetConfig().Load("rpcserverport").c_str());
+    //rpc调用方向zk上查询该服务所在的host信息
+    ZkClient zkCli;
+    zkCli.Start();
+    std::string method_path = "/"+service_name+"/"+method_name;
+    std::string host_data = zkCli.GetData(method_path.c_str());
+    if(host_data == ""){
+        controller->SetFailed(method_path+"is Not exist");
+        return;
+    }
+    int idx = host_data.find(":");
+    if(idx == -1){
+        controller->SetFailed(method_path+"address is invaild");
+        return ;
+    }
+    std::string ip=host_data.substr(0,idx);
+    uint16_t port = atoi(host_data.substr(idx+1,host_data.size()-idx).c_str());
+    std::cout<<"find method on ip:"<<ip<<"port"<<port<<std::endl;
+    
+    //初始化socket
     struct sockaddr_in server_addr;
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(port);

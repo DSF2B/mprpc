@@ -1,0 +1,16 @@
+16:6:38=>[INFO]service_name:FriendServiceRpc
+16:6:38=>[INFO]method_name:GetFriendsList
+16:8:25=>[INFO]service_name:FriendServiceRpc
+16:8:25=>[INFO]method_name:GetFriendsList
+16:8:47=>[INFO]service_name:FriendServiceRpc
+16:8:47=>[INFO]method_name:GetFriendsList
+16:19:26=>[INFO]service_name:FriendServiceRpc
+16:19:26=>[INFO]method_name:GetFriendsList
+16:21:0=>[INFO]service_name:FriendServiceRpc
+16:21:0=>[INFO]method_name:GetFriendsList
+16:22:25=>[INFO]service_name:FriendServiceRpc
+16:22:25=>[INFO]method_name:GetFriendsList
+16:26:25=>[INFO]service_name:FriendServiceRpc
+16:26:25=>[INFO]method_name:GetFriendsList
+16:39:2=>[INFO]service_name:FriendServiceRpc
+16:39:2=>[INFO]method_name:GetFriendsList

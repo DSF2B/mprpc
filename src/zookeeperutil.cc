@@ -10,7 +10,7 @@ void global_watcher(zhandle_t *zh, int type,
     if(type == ZOO_SESSION_EVENT){//回调消息类型
         if(state == ZOO_CONNECTED_STATE){//连接成功
             //如果连接成功，zkclient调用watcher，给sem加一，client继续运行
-            sem_t *sem = (sem*)zoo_get_context(zh);
+            sem_t *sem = (sem_t*)zoo_get_context(zh);
             sem_post(sem);
         }
     }
